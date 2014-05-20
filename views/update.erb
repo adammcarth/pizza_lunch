@@ -1,0 +1,15 @@
+<form action="/update_order/<%= @order.id %>" method="post">
+  <p>
+    <input type="text" name="name" value="<%= @order.name %>" placeholder="Name">
+  </p>
+  <p>
+    <input type="text" name="order" value="<%= @order.order %>" placeholder="Order">
+  </p>
+  <p>
+    <input type="text" name="price" value="<%= @order.price %>" placeholder="Price">
+  </p>
+  <p>
+    <input type="text" name="paid" value="<%= @order.paid %>" placeholder="Paid?">
+  </p>
+  <input type="submit" value="Update">
+</form>

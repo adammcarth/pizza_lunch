@@ -1,0 +1,40 @@
+<h1>Organiser</h1>
+<table style="width:100%" border="1">
+  <thead>
+    <tr>
+      <th>Name:</th>
+      <th>Order:</th>
+      <th>Price:</th>
+      <th>Paid?:</th>
+      <th>Actions:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.name %></td>
+      <td><%= order.order %></td>
+      <td align="center">$<%= order.price %></td>
+      <td align="center">$<%= order.paid %><% if order.price == order.paid or Float(order.price) < Float(order.paid) %> &#10004;<% end %></td>
+      <td align="center"><a href="/update_order/<%= order.id %>">Update</a> | <a href="/delete_order/<%= order.id %>">Delete</a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div style="height:80px;"></div>
+<h2>Add Person</h2>
+<form action="/new_order" method="post">
+  <p>
+    <input type="text" name="name" placeholder="Name">
+  </p>
+  <p>
+    <input type="text" name="order" placeholder="Order">
+  </p>
+  <p>
+    <input type="text" name="price" placeholder="Price">
+  </p>
+  <p>
+    <input type="text" name="paid" placeholder="Paid?">
+  </p>
+  <input type="submit" value="Save">
+</form>
